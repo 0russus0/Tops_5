@@ -20,7 +20,7 @@ class TopsController extends AbstractController
         // $response = new Response(json_encode($tops));
         // $response->headers->set('Content-Type', 'application/json');
         // return $response;
-        return $this->render('tops/index.html.twig', [
+        return $this->render('pages/tops/index.html.twig', [
             'tops' => $tops,
         ]);
     }

@@ -1,0 +1,42 @@
+{# <div class="topnav">
+  <a class="active" href="#">Créatifs</a>
+  <a href="#news">À propos</a>
+  <a href="#contact">Contact</a>
+  <a href="#about">Articles</a>
+</div>  #}
+{# <div class="header">
+     <div class="logo">
+         <a href="{{ path('home') }}"><img src="{{asset('/images/LogoPixelsMakers.png')}}" alt="logo"/></a>
+    </div>
+  <input class="menu-btn" type="checkbox" id="menu-btn" />
+  <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+  <ul class="menu">
+    <li><a href="#work"></a></li>
+    <li><a href="#about"></a></li>
+    <li><a href="#careers"></a></li>
+    <li></li>
+    <li><i class="btn-lightconnect" href="#">+</i></li>
+  </ul>
+</div> #}
+
+<div class="header">
+  <div class="logo">
+    <a href="{{ path('home') }}">
+      <img src="{{ asset('/images/LogoTop5.png') }}" alt="logo" />
+    </a>
+  </div>
+  <ul class="nav justify-content-end">
+    <li class="nav-item">
+      <a class="btn-lightconnect" href="{{ path('app_tops') }}">
+        Tous les Tops 5
+      </a>
+    </li>
+    <li class="nav-item"><a class="nav-link" href="#">Les Topers</a></li>
+    <li class="nav-item"><a class="nav-link active" href="#">À propos</a></li>
+    <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+    <li class="nav-item"><a class="btn-lightconnect" href="#">Connexion</a></li>
+    <li class="nav-item">
+      <a id="last"><i class="add" id="add" href="#"></i>+</a>
+    </li>
+  </ul>
+</div>
