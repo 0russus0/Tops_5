@@ -2,32 +2,32 @@
 
 namespace App\Repository;
 
-use App\Entity\TopElement;
+use App\Entity\CategoryRequest;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\OptimisticLockException;
 use Doctrine\ORM\ORMException;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @method TopElement|null find($id, $lockMode = null, $lockVersion = null)
- * @method TopElement|null findOneBy(array $criteria, array $orderBy = null)
- * @method TopElement[]    findAll()
- * @method TopElement[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method CategoryRequest|null find($id, $lockMode = null, $lockVersion = null)
+ * @method CategoryRequest|null findOneBy(array $criteria, array $orderBy = null)
+ * @method CategoryRequest[]    findAll()
+ * @method CategoryRequest[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  *
- * @extends ServiceEntityRepository<TopElement>
+ * @extends ServiceEntityRepository<CategoryRequest>
  */
-class TopElementRepository extends ServiceEntityRepository
+class CategoryRequestRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, TopElement::class);
+        parent::__construct($registry, CategoryRequest::class);
     }
 
     /**
      * @throws ORMException
      * @throws OptimisticLockException
      */
-    public function add(TopElement $entity, bool $flush = true): void
+    public function add(CategoryRequest $entity, bool $flush = true): void
     {
         $this->_em->persist($entity);
         if ($flush) {
@@ -39,7 +39,7 @@ class TopElementRepository extends ServiceEntityRepository
      * @throws ORMException
      * @throws OptimisticLockException
      */
-    public function remove(TopElement $entity, bool $flush = true): void
+    public function remove(CategoryRequest $entity, bool $flush = true): void
     {
         $this->_em->remove($entity);
         if ($flush) {
@@ -48,15 +48,15 @@ class TopElementRepository extends ServiceEntityRepository
     }
 
     // /**
-    //  * @return TopElement[] Returns an array of TopElement objects
+    //  * @return CategoryRequest[] Returns an array of CategoryRequest objects
     //  */
     /*
     public function findByExampleField($value)
     {
-        return $this->createQueryBuilder('t')
-            ->andWhere('t.exampleField = :val')
+        return $this->createQueryBuilder('c')
+            ->andWhere('c.exampleField = :val')
             ->setParameter('val', $value)
-            ->orderBy('t.id', 'ASC')
+            ->orderBy('c.id', 'ASC')
             ->setMaxResults(10)
             ->getQuery()
             ->getResult()
@@ -65,10 +65,10 @@ class TopElementRepository extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?TopElement
+    public function findOneBySomeField($value): ?CategoryRequest
     {
-        return $this->createQueryBuilder('t')
-            ->andWhere('t.exampleField = :val')
+        return $this->createQueryBuilder('c')
+            ->andWhere('c.exampleField = :val')
             ->setParameter('val', $value)
             ->getQuery()
             ->getOneOrNullResult()

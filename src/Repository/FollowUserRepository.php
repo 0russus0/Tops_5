@@ -2,32 +2,32 @@
 
 namespace App\Repository;
 
-use App\Entity\TopElement;
+use App\Entity\FollowUser;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\OptimisticLockException;
 use Doctrine\ORM\ORMException;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @method TopElement|null find($id, $lockMode = null, $lockVersion = null)
- * @method TopElement|null findOneBy(array $criteria, array $orderBy = null)
- * @method TopElement[]    findAll()
- * @method TopElement[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method FollowUser|null find($id, $lockMode = null, $lockVersion = null)
+ * @method FollowUser|null findOneBy(array $criteria, array $orderBy = null)
+ * @method FollowUser[]    findAll()
+ * @method FollowUser[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  *
- * @extends ServiceEntityRepository<TopElement>
+ * @extends ServiceEntityRepository<FollowUser>
  */
-class TopElementRepository extends ServiceEntityRepository
+class FollowUserRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, TopElement::class);
+        parent::__construct($registry, FollowUser::class);
     }
 
     /**
      * @throws ORMException
      * @throws OptimisticLockException
      */
-    public function add(TopElement $entity, bool $flush = true): void
+    public function add(FollowUser $entity, bool $flush = true): void
     {
         $this->_em->persist($entity);
         if ($flush) {
@@ -39,7 +39,7 @@ class TopElementRepository extends ServiceEntityRepository
      * @throws ORMException
      * @throws OptimisticLockException
      */
-    public function remove(TopElement $entity, bool $flush = true): void
+    public function remove(FollowUser $entity, bool $flush = true): void
     {
         $this->_em->remove($entity);
         if ($flush) {
@@ -48,15 +48,15 @@ class TopElementRepository extends ServiceEntityRepository
     }
 
     // /**
-    //  * @return TopElement[] Returns an array of TopElement objects
+    //  * @return FollowUser[] Returns an array of FollowUser objects
     //  */
     /*
     public function findByExampleField($value)
     {
-        return $this->createQueryBuilder('t')
-            ->andWhere('t.exampleField = :val')
+        return $this->createQueryBuilder('f')
+            ->andWhere('f.exampleField = :val')
             ->setParameter('val', $value)
-            ->orderBy('t.id', 'ASC')
+            ->orderBy('f.id', 'ASC')
             ->setMaxResults(10)
             ->getQuery()
             ->getResult()
@@ -65,10 +65,10 @@ class TopElementRepository extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?TopElement
+    public function findOneBySomeField($value): ?FollowUser
     {
-        return $this->createQueryBuilder('t')
-            ->andWhere('t.exampleField = :val')
+        return $this->createQueryBuilder('f')
+            ->andWhere('f.exampleField = :val')
             ->setParameter('val', $value)
             ->getQuery()
             ->getOneOrNullResult()

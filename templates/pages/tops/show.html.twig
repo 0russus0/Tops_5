@@ -1,11 +1,10 @@
-{% extends 'base.html.twig' %}
+{% extends 'front/front.html.twig' %}
 
-{% block title %}Top {id}
-{% endblock %}
+{% block title %}Top {{ top.title }}{% endblock %}
 
-{% block body %}
+{% block front_main %}
 	<h1>{{ top.title }}</h1>
 	<article>
 		<div></div>
-
-	{% endblock %}
+	</article>
+{% endblock %}
