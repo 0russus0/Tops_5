@@ -1,0 +1,27 @@
+<div class="header">
+    <div class="logo">
+        <a href="{{ path('home') }}"><img src="{{asset('/images/LogoTops5.png')}}" alt="logo"/></a>
+    </div>
+    <ul class="nav justify-content-end">
+        <li class="nav-item">
+            <a class="nav-link active" href="{{path('front_tops_index')}}">Tous les Tops</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Les catégories</a>
+           {# <a class="nav-link" href="{{ path('front_categories_index') }}">Les catégories</a>#}
+
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Les Topers</a>
+           {# <a class="nav-link" href="{{ path('front_topers_index') }}">Les Topers</a>#}
+
+        </li>
+        <li class="nav-item">
+            <a class="btn-lightconnect" href="#">Connexion</a>
+            {#<a class="btn-lightconnect" href="{{ path('app_login') }}">Connexion</a>#}
+        </li>
+        <li class="nav-item">
+            <a id="last"><i class="fas fa-plus-square" id="add" href="#"></i></a>
+        </li>
+    </ul>
+</div>
