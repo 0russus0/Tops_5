@@ -1,15 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
-:root {
-  /* ================ ENRICHISSEMENTS DIVERS ================ */
-  --font-family-text: 'Roboto', 'Verdana', sans-serif;
-  --general-shadow: 0px 0px 23px 5px rgba(114, 115, 116, 0.38);
-  --general-border-radius: 5px;
-  /* ================ COULEURS ================ */
-  --color-white: #FFF8F3;
-  --color-blue: #00A2C8;
-  --color-pink: #CB0041;
-  --color-violet: #282C7B;
-  --color-yellow: #FFB300;
-  --color-black: #131315;
-  --color-lightgrey: #E9E9E9;
-}
+
+  // ================ ENRICHISSEMENTS DIVERS ================ //
+  $font-family-text: 'Roboto', 'Verdana', sans-serif;
+  $general-shadow: 0px 0px 23px 5px rgba(114, 115, 116, 0.38);
+  $general-border-radius: 5px;
+  // ================ COULEURS ================ //
+  $almost-white: #FFF8F3;
+  $blue: #00A2C8;
+  $pink: #CB0041;
+  $violet: #282C7B;
+  $yellow: #FFB300;
+  $black: #131315;
+  $lightgrey: #E9E9E9;
+

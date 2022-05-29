@@ -1,41 +1,50 @@
 {% extends 'front/front.html.twig' %}
 
 {% block title %}
-  Tops 5 | Lister, classer, partager, aimer
+	Tops 5 | Lister, classer, partager, aimer
 {% endblock %}
 
 {% block front_main %}
-  <style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font:
-    18px/1.5 sans-serif; } .example-wrapper code { background: #F5F5F5; padding:
-    2px 6px; }
-  </style>
-  <section>
-    <div class="example-wrapper">
-      <h1>
-        Tops 5
-      </h1>
-      <h2>
-        Hello les Topers
-      </h2>
-      {% for top in tops %}
-        <div class="topList">
-          <img class="" src="" alt="" />
-          <!-- Top details -->
-          <div class="TopContent">
-            <div class="text-center">
-              <!-- Product name -->
-              <h5 class="fw-bolder">
-                {{ top.title }}
-              </h5>
-              <!-- Contenu -->
-              <p>
-                {# {{ top.element }} #}
-              </p>
-            </div>
-          </div>
-        </div>
-      {% endfor %}
-    </div>
-  </section>
+	<style>
+		.example-wrapper {
+			margin: 1em auto;
+			max-width: 800px;
+			width: 95%;
+			font: 18px / 1.5 sans-serif;
+		}
+		.example-wrapper code {
+			background: #F5F5F5;
+			padding: 2px 6px;
+		}
+	</style>
+	<section>
+		<div class="example-wrapper">
+			<h1>
+				Tops 5
+			</h1>
+			<h2>
+				Hello les Topers
+			</h2>
+			{% for top in tops %}
+				<div class="topList">
+					<img
+					class="" src="" alt=""/>
+					<!-- Top details -->
+					<div class="TopContent">
+						<div
+							class="text-center">
+							<!-- Product name -->
+							<h5 class="fw-bolder">
+								{{ top.title }}
+							</h5>
+							<!-- Contenu -->
+							<p>
+								{# {{ top.element }} #}
+							</p>
+						</div>
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+	</section>
 {% endblock %}
