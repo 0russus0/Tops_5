@@ -9,7 +9,11 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Uid\Uuid;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Validator\Constraints as Assert;
 
+
+#[UniqueEntity('email')]
 #[ORM\Entity(repositoryClass: UserRepository::class)]
 #[ORM\Table(name: "`users`")]
 #[ORM\HasLifecycleCallbacks]
@@ -18,7 +22,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer')]
-    private int $id;
+    private ?int $id;
 
     #[ORM\Column(type: 'string', length: 180, unique: true)]
     private string $email;
@@ -31,7 +35,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private string $password;
 
     #[ORM\Column(type: 'string', length: 255)]
-    private string $userName;
+    private ?string $userName = null;
 
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private string $avatar;
@@ -71,6 +75,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     #[ORM\OneToMany(mappedBy: 'author', targetEntity: CategoryRequest::class)]
     private CategoryRequest $categoryRequests;
+
 
     public function __construct()
     {

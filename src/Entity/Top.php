@@ -7,6 +7,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Uid\Uuid;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: TopRepository::class)]
 #[ORM\Table(name: "`tops`")]
@@ -22,7 +23,9 @@ class Top
     private Uuid $uuid;
 
     #[ORM\Column(type: 'string', length: 255)]
+    #[Assert\Length(min: 2, max: 50)]
     private string $title;
+
 
     #[ORM\ManyToOne(targetEntity: User::class, inversedBy: 'tops')]
     #[ORM\JoinColumn(nullable: false)]

@@ -15,7 +15,7 @@ class HomeController extends AbstractController
     {
                $rep = $manager->getRepository(Top::class);
                 $tops = $rep->findBy([], ['createdAt' => 'DESC'], 5);
-                return $this->render('pages/home/index.html.twig', [
+                return $this->render('front/home/index.html.twig', [
                     'tops' => $tops,
                 ]);
     }

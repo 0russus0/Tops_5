@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2100f0309b42e22a95774780edfcb0eb",
+    "content-hash": "ab366980a389fd8e9a820a8ea3d5214a",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -5868,16 +5868,16 @@
         },
         {
             "name": "symfony/security-bundle",
-            "version": "v6.0.5",
+            "version": "v6.0.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/security-bundle.git",
-                "reference": "069c2c94600253891e9ba3cb1e098ba6a8bcddd1"
+                "reference": "56a9b0991479bef39bac12c69efe8c0fada91809"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/security-bundle/zipball/069c2c94600253891e9ba3cb1e098ba6a8bcddd1",
-                "reference": "069c2c94600253891e9ba3cb1e098ba6a8bcddd1",
+                "url": "https://api.github.com/repos/symfony/security-bundle/zipball/56a9b0991479bef39bac12c69efe8c0fada91809",
+                "reference": "56a9b0991479bef39bac12c69efe8c0fada91809",
                 "shasum": ""
             },
             "require": {
@@ -5948,7 +5948,7 @@
             "description": "Provides a tight integration of the Security component into the Symfony full-stack framework",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/security-bundle/tree/v6.0.5"
+                "source": "https://github.com/symfony/security-bundle/tree/v6.0.8"
             },
             "funding": [
                 {
@@ -5964,7 +5964,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-02-21T17:15:17+00:00"
+            "time": "2022-04-20T15:35:19+00:00"
         },
         {
             "name": "symfony/security-core",
@@ -8057,7 +8057,7 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=8.0.2",
+        "php": ">=8.1",
         "ext-ctype": "*",
         "ext-iconv": "*"
     },

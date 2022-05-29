@@ -2,7 +2,9 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <title>{% block title %}{% endblock %} • Top 5</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link rel="shortcut icon" href="assets/images/icons/favicon.ico" type="image/x-icon" />
+    <title>{% block title %}Tops 5{% endblock %}</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>" />
     {% block stylesheets %}
       {{ encore_entry_link_tags('front') }}
@@ -12,7 +14,14 @@
       {{ encore_entry_script_tags('front') }}
     {% endblock %}
   </head>
-  <body class="{% block bodyClass %}{% endblock %}">
-      {% block body %}{% endblock %}
+  <body >
+  {{ include('front/components/header.html.twig') }}
+  <main class="{% block bodyClass %}{% endblock %}">
+    {% block body %}{% endblock %}
+  </main>
+  {{ include('front/components/footer.html.twig') }}
+
   </body>
+  <script src="https://kit.fontawesome.com/20bbd7c04d.js" crossorigin="anonymous"></script>
 </html>
+
