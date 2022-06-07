@@ -13,6 +13,8 @@ use Doctrine\Persistence\ManagerRegistry;
  * @method TopElement|null findOneBy(array $criteria, array $orderBy = null)
  * @method TopElement[]    findAll()
  * @method TopElement[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ *
+ * @extends ServiceEntityRepository<TopElement>
  */
 class TopElementRepository extends ServiceEntityRepository
 {

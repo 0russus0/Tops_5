@@ -1,0 +1,36 @@
+{% extends 'front/front.html.twig' %}
+
+{% block title %}Liste des tops{% endblock %}
+
+{% block front_main %}
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Auteur</th>
+                <th>Créé le</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <a href="{{ path('front_tops_create') }}">Créer</a>
+            {% for top in tops %}
+                <tr>
+                    <td>{{ top.id }}</td>
+                    <td>{{ top.title }}</td>
+                    <td>{{ top.author.userName }}</td>
+                    <td>{{ top.createdAt | date('d/m/Y H:i:s') }}</td>
+                    <td>
+                        <a href="{{ path('front_tops_show', { uuid: top.uuid }) }}">Voir</a>
+                        <a href="{{ path('front_tops_edit', { uuid: top.uuid }) }}">Modifier</a>
+                        <form action="{{ path('front_tops_delete', { uuid: top.uuid }) }}" method="POST">
+                            <input type="hidden" name="_method" value="DELETE" />
+                            <button type="submit">Supprimer</button>
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
