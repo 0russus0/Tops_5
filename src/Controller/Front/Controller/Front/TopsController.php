@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller\Front;
+namespace App\Controller\Front\Controller\Front;
 
 use App\Entity\Top;
 use App\Entity\User;

@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Controller\Admin;
+namespace App\Controller\Front\Controller\Admin;
 
+use App\Controller\Admin\CreateTopType;
+use App\Controller\Admin\EditTopType;
 use App\Entity\Category;
 use App\Entity\User;
-use App\Form\Category\CreateCategoryType;
 use App\Form\Category\EditCategoryType;
 use Doctrine\ORM\EntityManagerInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
