@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller\Front\Controller\Front;
+namespace App\Controller\Front;
 
 use App\Entity\Top;
 use Doctrine\ORM\EntityManagerInterface;

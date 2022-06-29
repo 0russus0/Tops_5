@@ -6,10 +6,11 @@ use App\Repository\TopElementRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-use Monolog\DateTimeImmutable;
+use DateTimeImmutable;
 
 #[ORM\Entity(repositoryClass: TopElementRepository::class)]
 #[ORM\Table(name: "`top_elements`")]
+#[ORM\HasLifecycleCallbacks]
 class TopElement
 {
     #[ORM\Id]
@@ -37,14 +38,28 @@ class TopElement
     #[ORM\Column(type: 'datetime_immutable')]
     private DateTimeImmutable $updatedAt;
 
+    /** @var Collection<Vote> */
     #[ORM\OneToMany(mappedBy: 'topElement', targetEntity: Vote::class)]
-    private Vote $votes;
+    private Collection $votes;
 
     public function __construct()
     {
         $this->votes = new ArrayCollection();
+        try {
+            $this->createdAt = new \DateTimeImmutable('now', new \DateTimeZone('Europe/Paris'));
+            $this->updatedAt = new \DateTimeImmutable('now', new \DateTimeZone('Europe/Paris'));
+        } catch (\Exception $e) {
+        }
     }
 
+    #[ORM\PreUpdate]
+    public function preUpdate(): void
+    {
+        try {
+            $this->updatedAt = new \DateTimeImmutable('now', new \DateTimeZone('Europe/Paris'));
+        } catch (\Exception $e) {
+        }
+    }
     public function getId(): ?int
     {
         return $this->id;

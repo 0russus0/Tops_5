@@ -1,0 +1,15 @@
+{% extends 'front/front.html.twig' %}
+
+{% block title %}Ajouter une catégorie{% endblock %}
+
+{% block front_main %}
+    <a href="{{ path('front_index_categories') }}">Retour aux catégories</a>
+
+    {{ form_start(form) }}}
+    {{ form_row(form.title) }}
+    {{ form_row(form.author) }}
+    {{ form_row(form.slug) }}
+    {{ form_rest(form) }}
+    <button type="submit">Enregistrer ma catégorie</button>
+    {{ form_end(form) }}
+{% endblock %}

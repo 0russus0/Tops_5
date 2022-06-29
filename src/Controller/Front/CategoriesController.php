@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller\Front\Controller\Front;
+namespace App\Controller\Front;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -12,7 +12,9 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 use App\Entity\Category;
 use App\Entity\User;
-use App\Form\Category\CategoryType;
+use App\Form\Category\CreateCategoryType;
+use App\Form\Category\EditCategoryType;
+
 
 
 
@@ -43,7 +45,7 @@ class CategoriesController extends AbstractController
     public function create(ManagerRegistry $doctrine, Request $request): Response
     {
         $category = new Category();
-        $form = $this->createForm(CategoryType::class, $category);
+        $form = $this->createForm(CreateCategoryType::class, $category);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $doctrine->getManager();
@@ -67,7 +69,7 @@ class CategoriesController extends AbstractController
     {
         $repCategory = $doctrine->getRepository(category::class);
         $category = $repCategory->find($id);
-        $form = $this->createForm(CategoryType::class, $category);
+        $form = $this->createForm(EditCategoryType::class, $category);
 
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
@@ -106,7 +108,7 @@ class CategoriesController extends AbstractController
 
     public function delete(ManagerRegistry $doctrine, Request $request, int $id): Response
     {
-        $repCategory  = $doctrine->getRepository(Note::class);
+        $repCategory  = $doctrine->getRepository(Category::class);
         $category = $repCategory->find($id);
         $em = $doctrine->getManager();
         $em->remove($category);

@@ -3,9 +3,12 @@
   // ================ ENRICHISSEMENTS DIVERS ================ //
   $font-family-text: 'Be Vietnam Pro', sans-serif;
   $font-family-title:'M PLUS Rounded 1c', sans-serif;
-  $general-shadow: 0px 0px 23px 5px rgba(114, 115, 116, 0.38);
+  $general-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.15);
   $bottom-shadow: 0 5px 9px 5px rgba(114, 115, 116, 0.4);
   $general-border-radius: 5px;
+  $little-border-radius : 4px;
+  $general-border-radius: 8px;
+
   // ================ COULEURS ================ //
   $white:#FFF;
   $almost-white: #FFF8F3;
@@ -13,6 +16,7 @@
   $blue:#309B9F;
   $orange: #FAAB14;
   $violet: #784CDB;
+  $red: #FA5893;
   $black: #131315;
   $lightgrey: #E9E9E9;
 

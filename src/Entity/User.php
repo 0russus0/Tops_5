@@ -22,7 +22,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer')]
-    private ?int $id;
+    private int $id;
 
     #[ORM\Column(type: 'string', length: 180, unique: true)]
     private string $email;
@@ -38,7 +38,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?string $userName = null;
 
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
-    private string $avatar;
+    private ?string $avatar;
 
     #[ORM\Column(type: 'datetime_immutable')]
     private \DateTimeImmutable $createdAt;
@@ -47,34 +47,41 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private \DateTimeImmutable $updatedAt;
 
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
-    private string $googleId;
+    private ?string $googleId;
 
     #[ORM\Column(type: 'uuid', unique: true)]
     private Uuid $uuid;
 
     #[ORM\OneToOne(mappedBy: 'user', targetEntity: Ban::class, cascade: ['persist', 'remove'])]
-    private Ban $ban;
+    private ?Ban $ban;
 
+    /** @var Collection<FollowUser> */
     #[ORM\OneToMany(mappedBy: 'following', targetEntity: FollowUser::class)]
-    private FollowUser $followings;
+    private Collection $followings;
 
+    /** @var Collection<FollowUser> */
     #[ORM\OneToMany(mappedBy: 'follower', targetEntity: FollowUser::class)]
-    private FollowUser $followers;
+    private Collection $followers;
 
+    /** @var Collection<Top> */
     #[ORM\OneToMany(mappedBy: 'author', targetEntity: Top::class, orphanRemoval: true)]
-    private Top $tops;
+    private Collection $tops;
 
+    /** @var Collection<Vote> */
     #[ORM\OneToMany(mappedBy: 'author', targetEntity: Vote::class)]
-    private Vote $votes;
+    private Collection $votes;
 
+    /** @var Collection<Category> */
     #[ORM\OneToMany(mappedBy: 'author', targetEntity: Category::class)]
-    private Category $categories;
+    private Collection $categories;
 
+    /** @var Collection<FollowCategory> */
     #[ORM\OneToMany(mappedBy: 'user', targetEntity: FollowCategory::class, orphanRemoval: true)]
-    private FollowCategory $followCategories;
+    private Collection $followCategories;
 
+    /** @var Collection<CategoryRequest> */
     #[ORM\OneToMany(mappedBy: 'author', targetEntity: CategoryRequest::class)]
-    private CategoryRequest $categoryRequests;
+    private Collection $categoryRequests;
 
 
     public function __construct()
@@ -86,6 +93,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         $this->categories = new ArrayCollection();
         $this->followCategories = new ArrayCollection();
         $this->categoryRequests = new ArrayCollection();
+        $this->uuid=Uuid::v4();
         try {
             $this->createdAt = new \DateTimeImmutable('now', new \DateTimeZone('Europe/Paris'));
             $this->updatedAt = new \DateTimeImmutable('now', new \DateTimeZone('Europe/Paris'));
@@ -126,7 +134,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     public function getUserIdentifier(): string
     {
-        return (string) $this->email;
+        return (string) $this->userName;
     }
 
     /**

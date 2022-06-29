@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller\Front\Controller\Admin;
+namespace App\Controller\Admin;
 
 use App\Controller\Admin\CreateTopType;
 use App\Controller\Admin\EditTopType;

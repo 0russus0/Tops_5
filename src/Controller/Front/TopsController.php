@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Controller\Front\Controller\Front;
+namespace App\Controller\Front;
 
 use App\Entity\Top;
+use App\Entity\TopElement;
 use App\Entity\User;
 use App\Form\Top\CreateTopType;
 use App\Form\Top\EditTopType;
@@ -69,7 +70,10 @@ class TopsController extends AbstractController
     )]
     public function show(Top $top): Response
     {
+        $list=$this->manager->getRepository(TopElement::class)->elementList($top);
+
         return $this->render('front/top/show.html.twig', [
+            'list' => $list,
             'top' => $top,
         ]);
     }

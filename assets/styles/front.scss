@@ -1,16 +1,9 @@
 @charset "utf-8";
 @import "globals/vars";
 @import "globals/reset";
+@import "globals/layout";
 @import "components/footer";
 @import "components/header";
 @import "templates/home";
-html{
-  background-color: $almost-white;
-  font-family: $font-family-text;
-  main{
-    max-width: 1300px;
-    width: 100%;
-    margin: 0 auto;
-  }
-}
+
 

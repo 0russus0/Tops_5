@@ -50,19 +50,19 @@ class TopElementRepository extends ServiceEntityRepository
     // /**
     //  * @return TopElement[] Returns an array of TopElement objects
     //  */
-    /*
-    public function findByExampleField($value)
+
+    public function elementList($top)
     {
         return $this->createQueryBuilder('t')
-            ->andWhere('t.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('t.id', 'ASC')
-            ->setMaxResults(10)
+            ->andWhere('t.top = :val')
+            ->setParameter('val', $top)
+            ->orderBy('t.rank', 'ASC')
+            ->setMaxResults(5)
             ->getQuery()
             ->getResult()
         ;
     }
-    */
+
 
     /*
     public function findOneBySomeField($value): ?TopElement

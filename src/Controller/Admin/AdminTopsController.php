@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller\Front\Controller\Admin;
+namespace App\Controller\Admin;
 
 use Doctrine\ORM\EntityManagerInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;

@@ -10,6 +10,7 @@ use Symfony\Component\Uid\Uuid;
 
 #[ORM\Entity(repositoryClass: CategoryRepository::class)]
 #[ORM\Table(name: "`categories`")]
+#[ORM\HasLifecycleCallbacks]
 class Category
 {
     #[ORM\Id]
@@ -36,12 +37,30 @@ class Category
     #[ORM\Column(type: 'datetime_immutable')]
     private \DateTimeImmutable $updatedAt;
 
+    /**
+     * @var Collection<FollowCategory>
+     */
     #[ORM\OneToMany(mappedBy: 'category', targetEntity: FollowCategory::class, orphanRemoval: true)]
-    private FollowCategory $followCategories;
+    private Collection $followCategories;
 
     public function __construct()
     {
         $this->followCategories = new ArrayCollection();
+        $this->uuid = Uuid::v4();
+        try {
+            $this->createdAt = new \DateTimeImmutable('now', new \DateTimeZone('Europe/Paris'));
+            $this->updatedAt = new \DateTimeImmutable('now', new \DateTimeZone('Europe/Paris'));
+        } catch (\Exception $e) {
+        }
+    }
+
+    #[ORM\PreUpdate]
+    public function preUpdate(): void
+    {
+        try {
+            $this->updatedAt = new \DateTimeImmutable('now', new \DateTimeZone('Europe/Paris'));
+        } catch (\Exception $e) {
+        }
     }
 
     public function getId(): ?int

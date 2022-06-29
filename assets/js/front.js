@@ -1,2 +1,4 @@
 import '../styles/front.scss'
-import './script-nav'
+import './nav'
+
+

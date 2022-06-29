@@ -1,80 +1,43 @@
 <header>
-
-        {#<div class="logo">
-            <a href="{{ path('home') }}"><img src="{{asset('/images/LogoTops5.png')}}" alt="logo"/></a>
+    <div class="container">
+        <div class="logo">
+            <a href="{{ path('home') }}"><img src="{{ asset('build/images/logos/LogoTop5Orange.png') }}" alt="logo"/></a>
         </div>
-        <ul class="nav justify-content-end">
-            <li class="nav-item">
-                <a class="nav-link active" href="{{path('front_tops_index')}}">Tous les Tops</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Les catégories</a>
-               {# <a class="nav-link" href="{{ path('front_categories_index') }}">Les catégories</a>#}
 
-           {# </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Les Topers</a>
-               {# <a class="nav-link" href="{{ path('front_topers_index') }}">Les Topers</a>#}
-
-            {#</li>
-            <li class="nav-item">
-                <a class="btn-lightconnect" href="#">Connexion</a>
-                {#<a class="btn-lightconnect" href="{{ path('app_login') }}">Connexion</a>#}
-            {#</li>
-            <li class="nav-item">
-                <a id="last"><i class="fas fa-plus-square" id="add" href="#"></i></a>
-            </li>
-        </ul>
-    </div>#}
-    <div class="logo">
-        <a href="{{ path('home') }}" class="nav-icon" aria-label="visit homepage" aria-current="page">
-            <img src="{{asset('build/images/logos/LogoTop5Orange.png')}}" alt="logo"/>
-        </a>
-    </div>
-        {#<nav>
-            <a href="{{ path('home') }}" class="nav-icon" aria-label="visit homepage" aria-current="page">
-                <img src="{{asset('build/images/logos/LogoTop5Orange.png')}}" alt="logo"/>
-            </a>
-
-            <div class="main-navlinks">
-                <button class="hamburger" type="button" aria-label="Toggle navigation" aria-expanded="false">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>#}
-{#                <div class="navlinks-container">
-                    <a class="nav-link active" href="{{path('front_tops_index')}}">Tous les Tops</a>
-                    <a class="nav-link" href="#">Les catégories</a>#}
-                    {# <a class="nav-link" href="{{ path('front_categories_index') }}">Les catégories</a>#}
-{#                    <a class="nav-link" href="#">Les Topers</a>
-                    #}{# <a class="nav-link" href="{{ path('front_topers_index') }}">Les Topers</a>#}{#
-                    #}{#<a class="btn-lightconnect" href="#">Connexion</a>#}{#
-                    #}{#<a class="btn-lightconnect" href="{{ path('app_login') }}">Connexion</a>#}{#
-                    #}{#<a id="last"><i class="fas fa-plus-square" id="add" href="#"></i></a>#}{#
+        <div class = "nav">
+            <div id="myNav" class="overlay">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><i class="fa-solid fa-xmark"></i></a>
+                <div class="overlay-content">
+                    <div class="nav-links">
+                        <a class="nav-link active" href="{{ path('home') }}" onclick="closeNav()">Accueil</a>
+                        <a class="nav-link active" href="{{ path('front_tops_index') }}" onclick="closeNav()">Tous les Tops</a>
+                        <a class="nav-link" href="{{ path('front_index_categories') }}" onclick="closeNav()">Les catégories</a>
+                        <a href="#" onclick="closeNav()">FAQ</a>
+                        <a href="#" onclick="closeNav()">Contact</a>
+                    </div>
+                    <div class="cordonav">
+                        <ul>
+                            <li><a>TOP 5</a></li>
+                            <li><a href="mailto:pierreetleroux@gmail.com">Contacter Top 5</a></li>
+                            <li>
+                                <a href="https://twitter.com/PIERREetLEROUX"><i class="fab fa-twitter-square"></i></a>
+                                <a href="https://www.instagram.com/russus/"><i class="fab fa-instagram-square"></i></a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-            </div>#}
-
-{#            <div class="nav-authentication">
-                <a href="#" class="sign-user" aria-label="Sign in page">
-                    <img src="ressources/user.svg" alt="user-icon">
-                </a>
-                <div class="sign-btns">
-                    <button type="button" ><a href="#">Connexion</a></button>
-                    <button type="button" class="btn add"><a><i class="fas fa-plus-square" id="add" href="#"></i></a></button>
+                <div class="logonavblock">
+                    <div class="nav-logo"><img src="{{ asset('build/images/logos/LogoTop5Orange.png') }}" alt="logo"></div>
                 </div>
             </div>
-        </nav>#}
+
+            <div class="menu-nav">
+                <a class="menu-btn add" href="{{ path('front_tops_create') }}"><i class="fa-solid fa-plus"></i></a>
+                <a class="menu-btn log" href="{{ path('app_login') }}"><i class="fa-solid fa-circle-user"></i></a>
+                <a class="menu-btn menu" onclick="openNav()"><i class="fa-solid fa-bars"></i></a>
+            </div>
+        </div>
 
 
-        <nav class="navigation__nav">
-            <ul class="navigation__list">
-                <li class="navigation__item"><a href="#" class="navigation__link"><span>01</span>About Us</a></li>
-                <li class="navigation__item"><a href="#" class="navigation__link"><span>02</span>Your benfits</a></li>
-                <li class="navigation__item"><a href="#" class="navigation__link"><span>03</span>Popular tours</a></li>
-                <li class="navigation__item"><a href="#" class="navigation__link"><span>04</span>Stories</a></li>
-                <li class="navigation__item"><a href="#" class="navigation__link"><span>05</span>Book now</a></li>
-            </ul>
-        </nav>
-
-
+    </div>
 </header>
