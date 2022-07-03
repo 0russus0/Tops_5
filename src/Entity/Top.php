@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use App\Enums\TopColors;
 use App\Repository\TopRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -31,10 +32,10 @@ class Top
     #[ORM\JoinColumn(nullable: false)]
     private User $author;
 
-    #[ORM\Column(type: 'string', length: 255)]
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private string $icon;
 
-    #[ORM\Column(type: 'integer')]
+    #[ORM\Column(type: 'integer', nullable: true)]
     private int $color;
 
     #[ORM\Column(type: 'datetime_immutable')]
@@ -60,6 +61,10 @@ class Top
      */
     #[ORM\OneToMany(mappedBy: 'top', targetEntity: Vote::class)]
     private Collection $votes;
+
+    #[ORM\ManyToOne(targetEntity: Category::class, inversedBy: 'tops')]
+    #[ORM\JoinColumn(nullable: false)]
+    private $category;
 
     public function __construct()
     {
@@ -140,9 +145,9 @@ class Top
         return $this->color;
     }
 
-    public function setColor(int $color): self
+    public function setColor(TopColors $color): self
     {
-        $this->color = $color;
+        $this->color = $color->value;
 
         return $this;
     }
@@ -188,9 +193,14 @@ class Top
         return $this->deadline;
     }
 
-    public function setDeadline(?\DateTimeImmutable $deadline): self
+    public function setDeadline(\DateTimeImmutable|\DateTime|null $deadline): self
     {
-        $this->deadline = $deadline;
+        $date=$deadline;
+        if ($deadline instanceof \DateTime){
+            $date=\DateTimeImmutable::createFromMutable($deadline);
+        }
+
+        $this->deadline = $date;
 
         return $this;
     }
@@ -251,6 +261,18 @@ class Top
                 $vote->setTop(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getCategory(): ?Category
+    {
+        return $this->category;
+    }
+
+    public function setCategory(?Category $category): self
+    {
+        $this->category = $category;
 
         return $this;
     }

@@ -6,20 +6,26 @@
     {% for flashError in app.flashes('verify_email_error') %}
         <div class="alert alert-danger" role="alert">{{ flashError }}</div>
     {% endfor %}
-    <section class="register-container">
-        <div class="form-container">
-            <div class="block-left-auth"><p>Top 5, </br>lister, classer, partager, aimer</p></div>
-            <div id = "auth" class="form-group">
-                <h1 class="register-title">Inscription</h1>
-                {{form_start(form)}}
-                {{form_rest(form)}}
+    <section class="theRegister">
+        <div class="container">
+            <div class="form-wrapper">
+                {% if app.user %}
+                    <div class="hello-user">
+                        <span>Bonjour {{ app.user.username }}, vous êtes déjà connecter.</span>
+                        <span> <a href="{{ path('home') }}">Retourner à l'accueil</a></span>
+                        <span> <a href="{{ path('app_logout') }}">Se déconnecter</a></span>
+                    </div>
+                {% endif %}
+                <h1 class="register-title">S’inscrire avec un e-mail</h1>
+                {{ form_start(form) }}
+                {{ form_rest(form) }}
                 <button type="submit" class="btn">Inscription</button>
                 {{ form_end(form) }}
                 <div class="agreeterm">
                     <p>*Champs obligatoires</p>
-                    <p><a <a href="{{ path('app_login') }}">>Vous êtes déjà inscrit ?</a></p>
+                    <p>Vous êtes déjà inscrit ? <a href="{{ path('app_login') }}" class="bold center">Connexion</a></p>
                     <p>En cliquant sur inscription, je confirme que j’ai lu et accepté
-                        <a href="#">les conditions d’utilisation</a> de Pixels Makers, la politique de confidentialité
+                        <a href="#">les conditions d’utilisation</a> de Top 5, la politique de confidentialité
                         et recevoir des courriels et des mises à jour. </p>
                 </div>
             </div>

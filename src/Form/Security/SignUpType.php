@@ -16,10 +16,10 @@ class SignUpType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('email', EmailType::class,  ['required'=>true])
-            ->add('password', PasswordType::class,  ['required'=>true])
-            ->add('userName', TextType::class, ['required'=>true])
-            ->add('avatar', FileType::class, ['required'=>false])
+            ->add('email', EmailType::class,  ['required'=>true, 'attr'=>['class'=>'form-control']])
+            ->add('password', PasswordType::class,  ['required'=>true, 'attr'=>['class'=>'form-control']])
+            ->add('userName', TextType::class, ['required'=>true, 'attr'=>['class'=>'form-control']])
+            ->add('avatar', FileType::class, ['required'=>false, 'attr'=>['class'=>'form-file']])
         ;
     }
 

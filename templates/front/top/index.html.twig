@@ -5,32 +5,41 @@
 {% block front_main %}
     <table>
         <thead>
-            <tr>
+        <tr>
+            {% if is_granted('ROLE_ADMIN') %}
                 <th>Id</th>
-                <th>Nom</th>
-                <th>Auteur</th>
-                <th>Créé le</th>
+            {% endif %}
+            <th>Nom</th>
+            <th>Auteur</th>
+            <th>Créé le</th>
+            {% if is_granted('ROLE_ADMIN') %}
                 <th>Actions</th>
-            </tr>
+            {% endif %}
+        </tr>
         </thead>
         <tbody>
-            <a href="{{ path('front_tops_create') }}">Créer</a>
-            {% for top in tops %}
-                <tr>
+        <a href="{{ path('front_tops_create') }}">Créer</a>
+        {% for top in tops %}
+            <tr>
+                {% if is_granted('ROLE_ADMIN') %}
                     <td>{{ top.id }}</td>
-                    <td>{{ top.title }}</td>
-                    <td>{{ top.author.userName }}</td>
-                    <td>{{ top.createdAt | date('d/m/Y H:i:s') }}</td>
-                    <td>
-                        <a href="{{ path('front_tops_show', { uuid: top.uuid }) }}">Voir</a>
-                        <a href="{{ path('front_tops_edit', { uuid: top.uuid }) }}">Modifier</a>
-                        <form action="{{ path('front_tops_delete', { uuid: top.uuid }) }}" method="POST">
-                            <input type="hidden" name="_method" value="DELETE" />
-                            <button type="submit">Supprimer</button>
-                        </form>
-                    </td>
-                </tr>
-            {% endfor %}
+                {% endif %}
+                <td>{{ top.title }}</td>
+                <td>{{ top.author.userName }}</td>
+                <td>{{ top.createdAt | date('d/m/Y H:i:s') }}</td>
+
+                <td>
+                    <a href="{{ path('front_tops_show', { uuid: top.uuid }) }}">Voir</a>
+                    {% if is_granted('ROLE_ADMIN') %}
+                    <a href="{{ path('front_tops_edit', { uuid: top.uuid }) }}">Modifier</a>
+                    <form action="{{ path('front_tops_delete', { uuid: top.uuid }) }}" method="POST">
+                        <input type="hidden" name="_method" value="DELETE"/>
+                        <button type="submit" class="btn">Supprimer</button>
+                    </form>
+                </td>
+                {% endif %}
+            </tr>
+        {% endfor %}
         </tbody>
     </table>
 {% endblock %}

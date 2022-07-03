@@ -1,90 +1,139 @@
+
 html {
   background-color: $almost-white;
   font-family: $font-family-text;
+  padding: 0;
+  margin: 0;
+  height: 100%;
 
-  main, .container {
-    width: 100%;
-    margin: 0 auto;
-    z-index: 1;
+  body {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    background-color: $violet;
 
-    .container {
-      max-width: 1300px;
-    }
 
-    h2 {
-      max-width: 280px;
-      height: 65px;
-      background-color: $light-blue;
-      padding: 20px;
-      rotate: -3deg;
-      margin-bottom: 25px;
-      font-size: 24px;
-      line-height: 24px;
-      text-align: center;
-      font-family: $font-family-title;
-      font-weight: 700;
-      color: $white;
-      border-radius: 3px;
+    main, .container {
+      width: 100%;
+      margin: 0 auto;
+      z-index: 1;
 
-      &::after {
-        content: " ";
-        width: 280px;
+      .container {
+        max-width: 1300px;
+      }
+
+      h2 {
+        max-width: 280px;
         height: 65px;
         background-color: $light-blue;
         padding: 20px;
-        rotate: 4deg;
-        opacity: 0.25;
-        position: absolute;
-        left: 0%;
-        top: 0%;
-
+        rotate: -3deg;
+        margin-bottom: 25px;
+        font-size: 24px;
+        line-height: 24px;
+        text-align: center;
+        font-family: $font-family-title;
+        font-weight: 700;
+        color: $white;
         border-radius: 3px;
-      }
-    }
-  }
 
-
-  .grid {
-    padding: 16px;
-    margin: 0 -16px;
-    display: grid;
-    gap: 10px;
-    grid-template-columns: repeat(auto-fill, minmax(245px, 1fr));
-    justify-content: center;
-
-    .card {
-      height: 350px;
-      background: white;
-      border-radius: 8px;
-      padding: 16px;
-      border: 2px solid $orange;
-      margin: 10px;
-
-      ol {
-        list-style-type: decimal;
-        display: block;
-        position: relative;
-
-        li {
-          width: 176px;
-          margin-right: 20px;
-          float: left;
-
-          &::before {
-            position: absolute;
-            content: "";
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            padding-right: 8px;
-            background-color: $orange;
-          }
+        &::after {
+          content: " ";
+          width: 280px;
+          height: 65px;
+          background-color: $light-blue;
+          padding: 20px;
+          rotate: 4deg;
+          opacity: 0.25;
+          position: absolute;
+          left: 0%;
+          top: 0%;
+          border-radius: 3px;
         }
       }
     }
 
+    .bold {
+      font-weight: $bold;
+    }
+
+    .center {
+      text-align: center
+    }
+
+    .links {
+        color: $orange;
+
+        &:hover {
+          color: $red;
+        }
+      }
+
+
+    .btn {
+      display: block;
+      max-width: 302px;
+      width: 100%;
+      height: 45px;
+      padding: 0.3rem 0.4rem;
+      outline: 0;
+      background-color: $light-blue;
+      box-sizing: border-box;
+      border-radius: 25px;
+      margin: 10px 0;
+      cursor: pointer;
+      font-family: $font-family-title;
+      font-weight: bold;
+
+      &:hover {
+        background-color: $lighter-blue;
+        box-shadow: $button-shadow;
+      }
+    }
+
+    .grid {
+      padding: 16px;
+      margin: 0 -16px;
+      display: grid;
+      gap: 10px;
+      grid-template-columns: repeat(auto-fill, minmax(245px, 1fr));
+      justify-content: center;
+
+      .card {
+        height: 350px;
+        background: white;
+        border-radius: 8px;
+        padding: 16px;
+        border: 2px solid $orange;
+        margin: 10px;
+
+        ol {
+          list-style-type: decimal;
+          display: block;
+          position: relative;
+
+          li {
+            width: 176px;
+            margin-right: 20px;
+            float: left;
+
+            &::before {
+              position: absolute;
+              content: "";
+              width: 20px;
+              height: 20px;
+              border-radius: 50%;
+              padding-right: 8px;
+              background-color: $orange;
+            }
+          }
+        }
+      }
+    }
   }
 }
+
+
 
 
 

@@ -43,6 +43,9 @@ class Category
     #[ORM\OneToMany(mappedBy: 'category', targetEntity: FollowCategory::class, orphanRemoval: true)]
     private Collection $followCategories;
 
+    #[ORM\OneToMany(mappedBy: 'category', targetEntity: Top::class)]
+    private $tops;
+
     public function __construct()
     {
         $this->followCategories = new ArrayCollection();
@@ -52,6 +55,7 @@ class Category
             $this->updatedAt = new \DateTimeImmutable('now', new \DateTimeZone('Europe/Paris'));
         } catch (\Exception $e) {
         }
+        $this->tops = new ArrayCollection();
     }
 
     #[ORM\PreUpdate]
@@ -164,6 +168,36 @@ class Category
             // set the owning side to null (unless already changed)
             if ($followCategory->getCategory() === $this) {
                 $followCategory->setCategory(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Top>
+     */
+    public function getTops(): Collection
+    {
+        return $this->tops;
+    }
+
+    public function addTop(Top $top): self
+    {
+        if (!$this->tops->contains($top)) {
+            $this->tops[] = $top;
+            $top->setCategory($this);
+        }
+
+        return $this;
+    }
+
+    public function removeTop(Top $top): self
+    {
+        if ($this->tops->removeElement($top)) {
+            // set the owning side to null (unless already changed)
+            if ($top->getCategory() === $this) {
+                $top->setCategory(null);
             }
         }
 

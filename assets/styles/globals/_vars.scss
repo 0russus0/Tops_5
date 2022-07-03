@@ -1,19 +1,24 @@
-@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=M+PLUS+Rounded+1c:wght@400;500;700;800&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=M+PLUS+Rounded+1c:wght@400;500;700;800&display=swap');
 
   // ================ ENRICHISSEMENTS DIVERS ================ //
   $font-family-text: 'Be Vietnam Pro', sans-serif;
   $font-family-title:'M PLUS Rounded 1c', sans-serif;
   $general-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.15);
   $bottom-shadow: 0 5px 9px 5px rgba(114, 115, 116, 0.4);
+  $button-shadow: 5px 5px 10px rgba(0, 0, 0, 0.16);
   $general-border-radius: 5px;
   $little-border-radius : 4px;
   $general-border-radius: 8px;
+  $bold: 700;
+
 
   // ================ COULEURS ================ //
   $white:#FFF;
   $almost-white: #FFF8F3;
+  $lighter-blue: #75E2D1;
   $light-blue: #75CED1;
   $blue:#309B9F;
+  $dark-blue:#6177F8;
   $orange: #FAAB14;
   $violet: #784CDB;
   $red: #FA5893;
