@@ -85,8 +85,8 @@
                 {% for user in users %}
                     <div class="card-user">
                         <!-- avatar -->
-                        {% if user.avatar|e %}
-                            <div class="avatar"><img src="/uploads/{{ app.user.avatar }}"/></div>
+                        {% if user.avatar %}
+                            <div class="avatar"><img src="/uploads/{{ user.avatar }}" alt="avatar"></div>
                         {% endif %}
                         <!-- User details -->
                         <div class="user-content">

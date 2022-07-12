@@ -34,9 +34,7 @@
             <div class="menu-nav">
                 <a class="menu-btn add" href="{{ path('front_tops_create') }}"><i class="fa-solid fa-plus"></i></a>
                 {% if app.user %}
-                    <a class="menu-btn menu avatar" href="#"><img src="/uploads/{{ app.user.avatar }}"></a>
-{#                    <a class="menu-btn menu avatar" href="{{ path('app_user') }}"><img src="/uploads/{{ app.user.avatar }}"></a>#}
-
+                    <a class="menu-btn menu avatar" href="#"><img src="/uploads/{{ app.user.avatar }}" alt="avatar"></a>
                 {% else %}
                     <a class="menu-btn log" href="{{ path('app_login') }}"><i class="fa-solid fa-circle-user"></i></a>
                 {% endif %}
