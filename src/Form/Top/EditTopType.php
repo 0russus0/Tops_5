@@ -30,16 +30,6 @@ class EditTopType extends AbstractType
             ->add('icon', TextType::class, [
                 'required' => true,
             ])
-            ->add('color', EnumType::class, [
-                'required' => true,
-            ])
-            ->add('collaborative', CheckboxType::class, [
-                'required' => true,
-            ])
-            ->add('deadline', DateTimeType::class, [
-                'required' => true,
-                'format' => DateTimeType::HTML5_FORMAT,
-            ])
         ;
     }
 

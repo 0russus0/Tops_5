@@ -55,7 +55,7 @@ class TopsController extends AbstractController
             $this->manager->persist($top);
             $this->manager->flush();
 
-            return $this->redirectToRoute('front_tops_index');
+            return $this->redirectToRoute('front_top_element_create', ['uuid' => $top->getUuid()]);
         }
 
         return $this->renderForm('front/top/create.html.twig', [
@@ -70,7 +70,7 @@ class TopsController extends AbstractController
     )]
     public function show(Top $top): Response
     {
-        $list=$this->manager->getRepository(TopElement::class)->elementList($top);
+        $list = $this->manager->getRepository(TopElement::class)->elementList($top);
 
         return $this->render('front/top/show.html.twig', [
             'list' => $list,

@@ -56,11 +56,10 @@ class TopElementRepository extends ServiceEntityRepository
         return $this->createQueryBuilder('t')
             ->andWhere('t.top = :val')
             ->setParameter('val', $top)
-            ->orderBy('t.rank', 'ASC')
+            ->orderBy('t.createdAt', 'ASC')
             ->setMaxResults(5)
             ->getQuery()
-            ->getResult()
-        ;
+            ->getResult();
     }
 
 

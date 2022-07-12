@@ -1,0 +1,52 @@
+{% extends 'front/front.html.twig' %}
+
+{% block title %}Ajouter un Top 5
+{% endblock %}
+
+{% block body %}
+    <section class="theShow">
+        <div class="container">
+            <div class="show-wrapper">
+                <div class="card-top show">
+                    <div class="header-card">
+                        <h3 class="top-title">
+                            {{ top.title }}
+                        </h3>
+                    </div>
+                    <!-- Top details -->
+                    <div class="top-content">
+                        <!-- Content -->
+                        <ol>
+                            {% for topElement in top.topElements %}
+                                <li>{{ (topElement.content) }}
+                                    <div class="dot"></div>
+                                </li>
+                            {% endfor %}
+                        </ol>
+                    </div>
+                    <div class="footer-card">
+                        <a href="{{ path('front_tops_show', {'uuid': top.uuid}) }}" class="btn btn-card up-card"></a>
+                        <a href="{{ path('front_tops_show', {'uuid': top.uuid}) }}" class="btn btn-card down-card"><i class="fa-solid fa-down"></i></a>
+                        <a href="https://www.facebook.com/sharer.php?u={{app.request.schemeAndHttpHost}}{{ path('front_tops_show', {'uuid': top.uuid}) }}" class="btn btn-card share-card"><i class="fa-solid fa-share"></i></a>
+                    </div>
+                </div>
+                <div class="info-container">
+                    <h1>Le Top</h1>
+                    <h2>{{ top.title }}</h2>
+                    {% if app.user %}
+                        <a href="{{ path('front_top_element_edit', { uuid: top.uuid }) }}" class="btn edit">Modifier</a>
+                    {% endif %}
+                    <div class=" back-to">
+                        <a href="{{ path('front_tops_index') }}" class="links">Retour aux tops</a>
+                        <a href="{{ path('home') }}" class="links">Retour à l'accueil</a>
+                    </div>
+                </div>
+
+
+
+
+
+            </div>
+        </div>
+    </section>
+{% endblock %}

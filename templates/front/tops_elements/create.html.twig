@@ -1,0 +1,24 @@
+{% extends 'front/front.html.twig' %}
+
+{% block title %}Ajouter un élément
+{% endblock %}
+
+{% block body %}
+	<section class="theCreator">
+		<div class="container">
+			<div class="form-wrapper">
+				<h1 class="title-creator">Ajouter un élément au TOP 5</h1>
+				{{ form_start(form) }}
+				{{ form_row(form.response_one) }}
+				{{ form_row(form.response_two) }}
+				{{ form_row(form.response_three) }}
+				{{ form_row(form.response_four) }}
+				{{ form_row(form.response_five) }}
+				{{ form_row(form.submit) }}
+				{{ form_rest(form) }}
+				{{ form_end(form) }}
+				<a href="{{ path('front_tops_show', { uuid: top.uuid }) }}" class="links">Retour au top</a>
+			</div>
+		</div>
+	</section>
+{% endblock %}

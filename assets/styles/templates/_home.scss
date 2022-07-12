@@ -1,7 +1,77 @@
-.theTop {
+.theTop, .theNews, .theTopers {
   width: 100%;
   padding-top: 80px;
   margin: -80px auto 0 auto;
-  background-color: $violet;
   border-radius: 0 0 15px 15px;
+
+  h2 {
+    position: relative;
+    max-width: 280px;
+    height: 65px;
+    padding: 20px;
+    rotate: -3deg;
+    margin-bottom: 20px;
+    font-size: 24px;
+    line-height: 24px;
+    text-align: center;
+    font-family: $font-family-title;
+    font-weight: 800;
+    color: $white;
+    border-radius: 3px;
+
+    &::before {
+      content: " ";
+      width: 280px;
+      height: 65px;
+      padding: 20px;
+      rotate: 4deg;
+      opacity: 0.25;
+      position: absolute;
+      left: 0%;
+      top: 0%;
+      border-radius: 3px;
+    }
+  }
 }
+
+
+.theTop, .theNews {
+  background-color: $violet;
+  .back-to{
+    margin: 0 auto 80px auto;
+  }
+}
+
+.theTop {
+  h2 {
+    background-color: $light-blue;
+
+    &::before {
+      background-color: $light-blue;
+    }
+  }
+}
+
+  .theNews {
+    h2 {
+      background-color: $orange;
+
+      &::before {
+        background-color: $orange;
+      }
+    }
+  }
+
+
+  .theTopers {
+    background-color: $almost-white;
+    width: 100%;
+
+    h2 {
+      background-color: $dark-blue;
+
+      &::before {
+        background-color: $dark-blue;
+      }
+    }
+  }

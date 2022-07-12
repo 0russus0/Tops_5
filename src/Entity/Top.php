@@ -71,6 +71,9 @@ class Top
         $this->uuid = Uuid::v4();
         $this->topElements = new ArrayCollection();
         $this->votes = new ArrayCollection();
+        $this->color = TopColors::COLOR_BLUE->value;
+        $this->collaborative = false;
+        $this->deadline = new \DateTimeImmutable("2022-09-02");
         try {
             $this->createdAt = new \DateTimeImmutable('now', new \DateTimeZone('Europe/Paris'));
             $this->updatedAt = new \DateTimeImmutable('now', new \DateTimeZone('Europe/Paris'));

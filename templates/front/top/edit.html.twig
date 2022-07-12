@@ -1,18 +1,17 @@
 {% extends 'front/front.html.twig' %}
 
-{% block title %}Éditer le top {{ top.title }}{% endblock %}
+{% block title %}Mofifier le TOP 5 :
+	{{ top.title }}
+{% endblock %}
 
 {% block front_main %}
-    <a href="{{ path('front_tops_index') }}">Retour aux tops</a>
+	<a href="{{ path('front_tops_index') }}">Retour aux tops</a>
 
-    {{ form_start(form) }}}
-    {{ form_row(form.title) }}
-    {{ form_row(form.category) }}
-    {{ form_row(form.icon) }}
-    {{ form_row(form.color) }}
-    {{ form_row(form.collaborative) }}
-    {{ form_row(form.deadline) }}
-    {{ form_rest(form) }}
-    <button type="submit">Modifier</button>
-    {{ form_end(form) }}
+	{{ form_start(form) }}
+	{{ form_row(form.title) }}
+	{{ form_row(form.category) }}
+	{{ form_row(form.icon) }}
+	{{ form_rest(form) }}
+	<button type="submit">Modifier</button>
+	{{ form_end(form) }}
 {% endblock %}

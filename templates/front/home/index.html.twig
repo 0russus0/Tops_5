@@ -8,31 +8,98 @@
     <section class="theTop">
         <div class="container">
             <h2>
-                Le Top des Tops
+                Le TOP des TOPS
             </h2>
             <div class="grid topOfTop">
-
                 {% for top in tops %}
-                    <div class="card top">
-                        <img
-                                class="" src="" alt=""/>
+                    <div class="card-top">
+                        <div class="header-card">
+                            <h3 class="top-title">
+                                {{ top.title }}
+                            </h3>
+                        </div>
                         <!-- Top details -->
-                        <div class="TopContent">
-                            <div class="text-center">
-                                <!-- Product name -->
-                                <h3 class="top-title">
-                                    {{ top.title }}
-                                </h3>
-                                <!-- Content -->
-                                <ol>
-                                    {% for topElement in top.topElements %}
-                                        <li>{{ (topElement.content) }}</li>
-                                    {% endfor %}
-                                </ol>
-                            </div>
+                        <div class="top-content">
+                            <!-- Content -->
+                            <ol>
+                                {% for topElement in top.topElements %}
+                                    <li>{{ (topElement.content) }}
+                                        <div class="dot"></div>
+                                    </li>
+                                {% endfor %}
+                            </ol>
+                        </div>
+                        <div class="footer-card">
+                            <a href="{{ path('front_tops_show', {'uuid': top.uuid}) }}" class="btn btn-card">Détail</a>
                         </div>
                     </div>
                 {% endfor %}
+            </div>
+            <div class=" back-to">
+                <a href="{{ path('front_tops_index') }}" class="links">Voir tous les tops</a>
+            </div>
+        </div>
+    </section>
+    <section class="theNews">
+        <div class="container">
+            <h2>
+                Les derniers TOPS
+            </h2>
+            <div class="grid topOfTop">
+                {% for top in tops %}
+                    <div class="card-top">
+                        <div class="header-card">
+                            <h3 class="top-title">
+                                {{ top.title }}
+                            </h3>
+                        </div>
+                        <!-- Top details -->
+                        <div class="top-content">
+                            <!-- Content -->
+                            <ol>
+                                {% for topElement in top.topElements %}
+                                    <li>{{ (topElement.content) }}
+                                        <div class="dot"></div>
+                                    </li>
+                                {% endfor %}
+                            </ol>
+                        </div>
+                        <div class="footer-card">
+                            <a href="#" class="btn btn-card">Détail</a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            <div class=" back-to">
+                <a href="{{ path('front_tops_index') }}" class="links">Voir tous les tops</a>
+            </div>
+        </div>
+    </section>
+     <section class="theTopers">
+        <div class="container">
+            <h2>
+                Les TOPERS
+            </h2>
+            <div class="grid topers">
+
+                {% for user in users %}
+                    <div class="card-user">
+                        <!-- avatar -->
+                        {% if user.avatar|e %}
+                            <div class="avatar"><img src="/uploads/{{ app.user.avatar }}"/></div>
+                        {% endif %}
+                        <!-- User details -->
+                        <div class="user-content">
+                                <!-- User name -->
+                                <h3 class="user-title">
+                                    {{ user.userName }}
+                                </h3>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            <div class=" back-to">
+                <a href="#" class="links">Voir tous les Topers</a>
             </div>
         </div>
     </section>
